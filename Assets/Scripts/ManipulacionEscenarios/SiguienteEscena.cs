@@ -21,6 +21,9 @@ public class SiguienteEscena : MonoBehaviour
 
     bool partidaEmpezada = false;
 
+    public AudioSource reproductor;
+    public AudioClip clip;
+
     [System.Obsolete]
     public void Start()
     {
@@ -87,7 +90,15 @@ public class SiguienteEscena : MonoBehaviour
     }
     public void CambiarEscena()
     {
-        if(partidaEmpezada == true)
+        StartCoroutine(botonAudio());
+    }
+
+    IEnumerator botonAudio()
+    {
+        reproductor.PlayOneShot(clip);
+        yield return new WaitForSeconds(0.6f);
+
+        if (partidaEmpezada == true)
         {
             SceneManager.LoadScene("MenuPrincipal");
         }

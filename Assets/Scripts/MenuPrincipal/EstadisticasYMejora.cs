@@ -38,6 +38,9 @@ public class EstadisticasYMejora : MonoBehaviour
     public Button menosATK;
     public Button realizarMejora;
 
+    public AudioSource reproductor;
+    public AudioClip clip;
+
     // Start is called before the first frame update
     [System.Obsolete]
     void Start()
@@ -192,8 +195,8 @@ public class EstadisticasYMejora : MonoBehaviour
             CosteTotal = 0;
             tCoste.text = 0 + "";
             tMonedero.text = Monedero + "";
-        }
 
-        
+            reproductor.PlayOneShot(clip);
+        }
     }
 }

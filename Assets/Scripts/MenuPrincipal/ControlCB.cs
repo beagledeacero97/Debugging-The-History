@@ -42,6 +42,12 @@ public class ControlCB : MonoBehaviour
 
     private List<string> conversaciones = new List<string>();
 
+    public AudioSource reproductor;
+    public AudioClip clip;
+
+    public AudioSource reproductor2;
+    public AudioClip clip2;
+
     [System.Obsolete]
     void Start()
     {
@@ -108,6 +114,7 @@ public class ControlCB : MonoBehaviour
     // Alterna la pantalla central del menu principal entre el mapa y el diario.
     public void bDiarioClick()
     {
+        reproductor.PlayOneShot(clip);
         // Si el mapa esta actualmente activo, se lanza la pantalla de carga y se cambia la visibilidad del mapa y sus elementos a false, a la vez
         // que se activan los elementos del panel de mejora y se hacen visibles al terminar la animaciíon de carga.
         if (mapa.enabled == true)
@@ -209,6 +216,8 @@ public class ControlCB : MonoBehaviour
 
     public void reproducir()
     {
+        reproductor2.PlayOneShot(clip2);
+
         string escena = listaConver.options[listaConver.value].text.ToString();
 
         dbconn = new SqliteConnection(conn);

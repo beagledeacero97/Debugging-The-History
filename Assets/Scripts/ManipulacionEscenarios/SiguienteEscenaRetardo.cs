@@ -18,6 +18,9 @@ public class SiguienteEscenaRetardo : MonoBehaviour
 
     public RawImage transicion;
     public Animator animator;
+
+    public AudioSource reproductor;
+    public AudioClip clip;
     void Start()
     {
         if(SceneManager.GetActiveScene().name == "TransicionViaje")
@@ -45,6 +48,7 @@ public class SiguienteEscenaRetardo : MonoBehaviour
 
     IEnumerator EsperarMP(string escena)
     {
+        reproductor.PlayOneShot(clip);
         animator.Play("PantallaNegraMovimiento");
         yield return new WaitForSeconds(1.8f);
         SceneManager.LoadScene(escena);

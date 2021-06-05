@@ -47,6 +47,18 @@ public class cargarPregunta : MonoBehaviour
     public RawImage youwin;
     public RawImage pantNegra;
 
+    public AudioSource reproductorResp1;
+    public AudioSource reproductorResp2;
+    public AudioSource reproductorResp3;
+    public AudioSource reproductorResp4;
+    public AudioSource reproductorClara;
+
+    public AudioClip clipCorrecto;
+    public AudioClip clipIncorrecto;
+    public AudioClip clipDisparo;
+    public AudioClip clipGolpe;
+
+
     // Start is called before the first frame update
     [System.Obsolete]
     void Start()
@@ -222,11 +234,13 @@ public class cargarPregunta : MonoBehaviour
         {
             if (b1Correcta == true)
             {
+                reproductorResp1.PlayOneShot(clipCorrecto);
                 boton.GetComponent<Image>().color = Color.green;
                 jugadorAcierta = true;
             }
             else
             {
+                reproductorResp1.PlayOneShot(clipIncorrecto);
                 boton.GetComponent<Image>().color = Color.red;
                 jugadorAcierta = false;
             }
@@ -235,11 +249,13 @@ public class cargarPregunta : MonoBehaviour
         {
             if (b2Correcta == true)
             {
+                reproductorResp2.PlayOneShot(clipCorrecto);
                 boton.GetComponent<Image>().color = Color.green;
                 jugadorAcierta = true;
             }
             else
             {
+                reproductorResp2.PlayOneShot(clipIncorrecto);
                 boton.GetComponent<Image>().color = Color.red;
                 jugadorAcierta = false;
             }
@@ -248,11 +264,13 @@ public class cargarPregunta : MonoBehaviour
         {
             if (b3Correcta == true)
             {
+                reproductorResp3.PlayOneShot(clipCorrecto);
                 boton.GetComponent<Image>().color = Color.green;
                 jugadorAcierta = true;
             }
             else
             {
+                reproductorResp3.PlayOneShot(clipIncorrecto);
                 boton.GetComponent<Image>().color = Color.red;
                 jugadorAcierta = false;
             }
@@ -261,11 +279,13 @@ public class cargarPregunta : MonoBehaviour
         {
             if (b4Correcta == true)
             {
+                reproductorResp4.PlayOneShot(clipCorrecto);
                 boton.GetComponent<Image>().color = Color.green;
                 jugadorAcierta = true;
             }
             else
             {
+                reproductorResp4.PlayOneShot(clipIncorrecto);
                 boton.GetComponent<Image>().color = Color.red;
                 jugadorAcierta = false;
             }
@@ -297,6 +317,7 @@ public class cargarPregunta : MonoBehaviour
         if (jugadorAcierta == true)
         {
             playerAnimator.Play("PlayerFightTest");
+            reproductorClara.PlayOneShot(clipDisparo);
             yield return new WaitForSeconds(0.70f);
             enemyAnimator.Play("EnemyHitTest");
 
@@ -313,6 +334,7 @@ public class cargarPregunta : MonoBehaviour
             enemyAnimator.Play("EnemyFightTest");
             yield return new WaitForSeconds(0.50f);
             playerAnimator.Play("PlayerHitTest");
+            reproductorClara.PlayOneShot(clipGolpe);
 
             plyHP -= eneATK;
 

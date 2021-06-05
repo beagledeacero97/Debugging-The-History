@@ -45,6 +45,9 @@ public class ControlMP : MonoBehaviour
 
     public SpriteRenderer claraImagen;
 
+    public AudioSource reproductor;
+    public AudioClip clip;
+
     public void Start()
     {
         // Invisibiliza todos los elementos relacionados con el panel de Mejora del Personaje.
@@ -55,6 +58,7 @@ public class ControlMP : MonoBehaviour
     // Tiene lugar al pulsar sobre el boton de cambio de pantalla entre mejoras y mapa.
     public void bMejClick()
     {
+        reproductor.PlayOneShot(clip);
         // Si el mapa esta actualmente activo, se lanza la pantalla de carga y se cambia la visibilidad del mapa y sus elementos a false, a la vez
         // que se activan los elementos del panel de mejora y se hacen visibles al terminar la animaciíon de carga.
         if (mapa.enabled == true)

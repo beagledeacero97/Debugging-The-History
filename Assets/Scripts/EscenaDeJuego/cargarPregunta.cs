@@ -52,12 +52,15 @@ public class cargarPregunta : MonoBehaviour
     public AudioSource reproductorResp3;
     public AudioSource reproductorResp4;
     public AudioSource reproductorClara;
+    public AudioSource reproductorMonedero;
 
     public AudioClip clipCorrecto;
     public AudioClip clipIncorrecto;
     public AudioClip clipDisparo;
     public AudioClip clipGolpe;
+    public AudioClip clipMoneda;
 
+    private string escenaActual = "";
 
     // Start is called before the first frame update
     [System.Obsolete]
@@ -113,7 +116,7 @@ public class cargarPregunta : MonoBehaviour
         //Fin Abrir Conexion con la BD
 
         dbcmd = dbconn.CreateCommand();
-        string query = "select * from PreguntasEgipto;";
+        string query = "SELECT * FROM PreguntasEgipto;";
         dbcmd.CommandText = query;
         reader = dbcmd.ExecuteReader();
         while (reader.Read())
@@ -122,6 +125,15 @@ public class cargarPregunta : MonoBehaviour
         }
         reader.Close();
 
+        query = "SELECT * FROM Escenas WHERE Completada = 'No';";
+        dbcmd.CommandText = query;
+        reader = dbcmd.ExecuteReader();
+        while (reader.Read())
+        {
+            escenaActual = reader[1].ToString();
+            break;
+        }
+        reader.Close();
 
         // Se cargan las estadisticas del personaje
         this.CargarEstadisticasClara();
@@ -367,7 +379,7 @@ public class cargarPregunta : MonoBehaviour
 
             reader.Close();
 
-            query = "UPDATE Escenas SET Completada = 'Si' WHERE Escena = '" + "Egipto 1-1" + "'; ";
+            query = "UPDATE Escenas SET Completada = 'Si' WHERE Escena = '" + escenaActual + "'; ";
             dbcmd.CommandText = query;
             reader = dbcmd.ExecuteReader();
 
@@ -410,7 +422,8 @@ public class cargarPregunta : MonoBehaviour
 
     IEnumerator Lapso(int monedas, Text texto)
     {
-        for(int c=1; c<=monedas; c++)
+        reproductorMonedero.PlayOneShot(clipMoneda);
+        for (int c=1; c<=monedas; c++)
         {
             int m = int.Parse(Monedero.text);
             m += 1;

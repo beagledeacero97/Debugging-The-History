@@ -104,7 +104,7 @@ public class SiguienteEscena : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("CinematicaEgipto");
+            SceneManager.LoadScene("CinematicaNave");
         }
     }
 }

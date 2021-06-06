@@ -231,6 +231,13 @@ public class ControlCB : MonoBehaviour
         reader.Close();
         dbconn.Close();
 
-        SceneManager.LoadScene("CinematicaEgipto");
+        if(escena == "Despierta")
+        {
+            SceneManager.LoadScene("CinematicaNave");
+        }
+        else
+        {
+            SceneManager.LoadScene("CinematicaEgipto");
+        }
     }
 }

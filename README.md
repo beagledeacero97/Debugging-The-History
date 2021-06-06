@@ -19,4 +19,4 @@ Si se quisiera generar una APK nueva con los archivos de este repositorio, los p
 
 4 - Cuando esten todas las escenas añadidas, seleccionamos la opción Build, la cual generará el APK del proyecto.
 
-A día 06/06/2021
+Ultima fecha de edición: 06/06/2021

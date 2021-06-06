@@ -12,8 +12,11 @@ La APK del proyecto se encuentra en el siguiente enlace: https://drive.google.co
 Si se quisiera generar una APK nueva con los archivos de este repositorio, los pasos a seguir son los siguientes:
 
 1 - Se debe crear un proyecto nuevo en Unity. 
+
 2 - Una vez creado, en la carpeta del proyecto se copiaran todos los archivos de este repositorio más la carpeta de audios.
+
 3 - Se selecciona File --> Build Settings --> y en la ventana que aparecera, se añadiran todas las escenas del juego, abriendo cada una de ellas de forma individual y      seleccionando Add Open Scenes en la ventana.
+
 4 - Cuando esten todas las escenas añadidas, seleccionamos la opción Build, la cual generará el APK del proyecto.
 
 A día 06/06/2021

@@ -25,6 +25,10 @@ public class ControlVentanas : MonoBehaviour
     private string escenaActual = "";
     private string escenaSiguiente = "MenuPrincipal";
 
+    public AudioSource reproductor;
+    public AudioClip clip;
+
+
     [System.Obsolete]
     public void Start()
     {
@@ -111,6 +115,7 @@ public class ControlVentanas : MonoBehaviour
     }
     IEnumerator PantallaNegroOcultar(string escena)
     {
+        reproductor.PlayOneShot(clip);
         pantNegra.enabled = true;
         transicion.Play("OcultarPantallaEgiptoMovimiento");
         yield return new WaitForSeconds(1.5f);

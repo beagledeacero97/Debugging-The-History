@@ -19,4 +19,6 @@ Si se quisiera generar una APK nueva con los archivos de este repositorio, los p
 
 4 - Cuando esten todas las escenas añadidas, seleccionamos la opción Build, la cual generará el APK del proyecto.
 
-Ultima fecha de edición: 06/06/2021
+En el caso de que algun archivo del repositorio no funcionara correctamente o diera algun problema, se puede descargar una versión, con todos los archivos que genera Unity, desde el siguiente enlace: https://drive.google.com/file/d/1VB9kMr9D93GVD25Ewo12X58Cdz7bUIog/view?usp=sharing
+
+Ultima fecha de edición: 07/06/2021
